@@ -46,17 +46,16 @@ class ListingController
         loadView('listings/show', ['listing' => $listing]);
     }
 
-    /**
-     * Match a value against another
-     * @param string $value1
-     * @param string $value2
-     * @return bool
-     */
-    public static function match($value1, $value2)
+    public function store()
     {
-        $value1 = trim($value1);
-        $value2 = trim($value2);
+        $allowedFields = ['title', 'description', 'salary', 'tags', 'company', 'address', 'city', 'state', 'phone', 'email', 'requirements', 'benefits'];
 
-        return $value1 === $value2;
+        $newListingData = array_intersect_key($_POST, array_flip($allowedFields));
+
+        $newListingData['user_id'] = 1;
+
+        $newListingData = array_map('sanitize', $newListingData);
+
+        inspectAndDie($newListingData);
     }
 }
