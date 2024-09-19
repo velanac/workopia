@@ -1,15 +1,5 @@
 <?php
 
-// $routes = require basePath('routes.php');
-
-
-// if (array_key_exists($uri, $routes)) {
-//     require(basePath($routes[$uri]));
-// } else {
-//     http_response_code(404);
-//     require basePath($routes['404']);
-// }
-
 class Router
 {
     protected $routes = [];
@@ -103,7 +93,7 @@ class Router
     {
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === $method) {
-                require basePath($route['controller']);
+                require basePath('App/' . $route['controller']);
                 return;
             }
         }

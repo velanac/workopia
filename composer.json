@@ -1,0 +1,16 @@
+{
+  "name": "velanac/workopia",
+  "description": "Job listing application",
+  "authors": [
+    {
+      "name": "Vladimir Velanac",
+      "email": "office@vidmedia.rs"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Framework\\": "Framework/",
+      "App\\": "App/"
+    }
+  }
+}
