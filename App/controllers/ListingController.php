@@ -102,7 +102,7 @@ class ListingController
             $this->db->query($query, $newListingData);
 
 
-            // redirect('/listings');
+            redirect('/listings');
         }
     }
 };
