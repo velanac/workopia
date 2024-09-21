@@ -156,12 +156,13 @@ class UserController
 
         // Set user session
         Session::set('user', [
-            'userId' => $user->id,
+            'id' => $user->id,
             'name' => $user->name,
             'email' => $user->email,
             'city' => $user->city,
             'state' => $user->state
         ]);
+
 
         redirect('/');
     }
