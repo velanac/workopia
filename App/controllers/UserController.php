@@ -105,4 +105,14 @@ class UserController
 
         redirect('/');
     }
+
+    public function logout()
+    {
+        Session::clearAll();
+
+        $params = session_get_cookie_params();
+        setcookie('PHPSESID', '', time() - 86400, $params['path'], $params['domain']);
+
+        redirect('/');
+    }
 }
